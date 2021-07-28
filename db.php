@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$dsn = "mysql:host = localhost; dbname = cinema;";
+$dsn = "mysql:host=localhost; dbname=cinema;";
 $username = "root";
 $password = "";
 $option= [];
