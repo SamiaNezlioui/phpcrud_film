@@ -1,5 +1,12 @@
 <?php
 require "db.php";
+//recupere la fiche du film
+$id = $_GET['id'];
+$sql = "SELECT * FROM film WHERE id =  :id";
+$statment = $connection->prepare($sql);
+$statment->execute([':id' =>$id]);
+$film = $statment->fetch(PDO::FETCH_OBJ);
+
 if (
     isset($_POST['titre']) &&
     isset($_POST['date']) &&
@@ -49,16 +56,17 @@ if (
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Titre</label>
-                    <input type="text" class="form-control" name="titre">
+                    <input type="text" class="form-control" name="titre" value="<?=$film->titre?>">
                 </div>
                 <div class="form-group">
                     <label>Date</label>
-                    <input type="date" class="form-control" name="date">
+                    <input type="date" class="form-control" name="date" value="<?=$film->annee?>">
                 </div>
 
                 <div class="form-group">
                     <label>image</label>
-                    <input type="file" name="image">
+                    <img src="<?=$film->image?>" widht="100">
+                    <input type="file" name="image" >
                 </div>
                 <button type="submit" class="btn btn-primary">Ajouter</button>
             </form>
