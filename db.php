@@ -10,8 +10,9 @@ $option= [];
 $connection = new PDO($dsn, $username, $password, $option);
 
 //fonction d'exeception on cas ya une erreur TRY
+
 try{
-    print "connexion reuissi";
+    //print "connexion reuissi";
 }catch(PDOException $e){
     echo $e->getMessage();
     die();
