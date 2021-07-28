@@ -27,14 +27,14 @@ $films = $statement->fetchAll(PDO::FETCH_OBJ);
 
           <?php foreach($films as $element): ?>
           <tr>
-            <th scope="row">1</th>
+            <th scope="row"><?=$element->id ?></th>
             <td><?=$element->titre ?></td>
             <td><?=$element->annee ?></td>
             <td><img src="<?=$element-> image ?>" width="100"></td>
 
             <td>
               <a href="edit.php?id=<?=$element->id ?>" class="btn btn-success">Editer</a>
-              <button type="button" class="btn btn-danger">Supprimer</button>
+              <a href="delete.php?id=<?=$element->id ?>" class="btn btn-danger">Supprimer</a>
             </td>
           </tr>
          <?php endforeach; ?>

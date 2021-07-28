@@ -15,4 +15,5 @@ insert into film (titre, annee, image) values
 SELECT * FROM film;
 
 /*editer les films*/
+
 UPDATE film set titre = "interstelar"  where id=3;

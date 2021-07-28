@@ -27,8 +27,10 @@ if (
 
     $path = "images/".$file_name; //chemin pouer stocké l'image
     if (in_array($ext, $allowed_ext)){
-        if(move_uploaded_file( $file_temp, $path)){
-            $sql = "INSERT INTO film (titre, annee, image) VALUES (:titre, :date, :image)";
+
+        if(move_uploaded_file($file_temp, $path)){
+
+            $sql = "UPDATE film set titre=:titre, annee=:date, image=:image WHERE id = :id";
             $statment = $connection->prepare($sql);
             if ($statment->execute(
                 [
@@ -66,9 +68,9 @@ if (
                 <div class="form-group">
                     <label>image</label>
                     <img src="<?=$film->image?>" widht="100">
-                    <input type="file" name="image" >
+                    <input type="file" name="image">
                 </div>
-                <button type="submit" class="btn btn-primary">Ajouter</button>
+                <button type="submit" class="btn btn-primary">Mettre à jour</button>
             </form>
         </div>
     </div>
