@@ -33,7 +33,7 @@ $films = $statement->fetchAll(PDO::FETCH_OBJ);
             <td><img src="<?=$element-> image ?>" width="100"></td>
 
             <td>
-              <button type="button" class="btn btn-success">Editer</button>
+              <a href="edit.php?id=<?=$element->id ?>" class="btn btn-success">Editer</a>
               <button type="button" class="btn btn-danger">Supprimer</button>
             </td>
           </tr>
